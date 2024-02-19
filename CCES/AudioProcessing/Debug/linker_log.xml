@@ -1,8 +1,8 @@
 <?xml version="1.0" standalone="no"?>
 <?xml-stylesheet type="text/xsl" href="file:///D:/CrossCore/System/linker_log.xsl"?>
-<DOCUMENT gen_time='Mon Feb  1 01:23:19 2021
+<DOCUMENT gen_time='Mon Feb  1 23:27:07 2021
 '>
-<MSG id='03E37BB0' mid='li3050' type='Informational' suppressed=''>
+<MSG id='03966ED8' mid='li3050' type='Informational' suppressed=''>
 <TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block0_nw_code']]></TEXT>
 <EXTENDED_INFO><![CDATA[The following input section(s) were excluded
     app_startup.doj(seg_pmco)
@@ -26,9 +26,10 @@
     libc.dlb[isinff.doj](seg_pmco)
     libc.dlb[memset.doj](seg_pmco)
     libc.dlb[no_dispatched_handler.doj](seg_pmco)
-    libc.dlb[set_c.doj](seg_pmco)]]></EXTENDED_INFO>
+    libc.dlb[set_c.doj](seg_pmco)
+    libc.dlb[sinf.doj](seg_pmco)]]></EXTENDED_INFO>
 </MSG>
-<MSG id='03F47038' mid='li3050' type='Informational' suppressed=''>
+<MSG id='03A88038' mid='li3050' type='Informational' suppressed=''>
 <TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block0_nw_code_prio3']]></TEXT>
 <EXTENDED_INFO><![CDATA[The following input section(s) were excluded
     app_startup.doj(seg_pmco)
@@ -52,6 +53,7 @@
     libc.dlb[isinff.doj](seg_pmco)
     libc.dlb[memset.doj](seg_pmco)
     libc.dlb[no_dispatched_handler.doj](seg_pmco)
-    libc.dlb[set_c.doj](seg_pmco)]]></EXTENDED_INFO>
+    libc.dlb[set_c.doj](seg_pmco)
+    libc.dlb[sinf.doj](seg_pmco)]]></EXTENDED_INFO>
 </MSG>
 </DOCUMENT>

@@ -9,6 +9,7 @@
 //#include "test_signal.h"
 #include "Delay.h"
 #include "Tremolo.h"
+#include "Flanger.h"
 #include "Write.h"
 
 
@@ -60,11 +61,14 @@ int main(int argc, char *argv[])
 	START_CYCLE_COUNT(start_count);
 	//tremolo(input_data, AUDIO_DATA_LENGTH, SAMPLE_RATE, 2, 0.6, output_data);
 	//delay(input_data,output_data,AUDIO_DATA_LENGTH);
-	delay_with_feedback(input_data, output_data, AUDIO_DATA_LENGTH, 0.8, 0.4);
+	//delay_with_feedback(input_data, output_data, AUDIO_DATA_LENGTH, 0.8, 0.4);
+	flanger(input_data, output_data, AUDIO_DATA_LENGTH, 0.9, 0.5);
+	//flanger_with_feedback(input_data,output_data,AUDIO_DATA_LENGTH, 0.9, 0.5, 0.5);
+
 	STOP_CYCLE_COUNT(final_count, start_count);
 	PRINT_CYCLES("Delay Cycles: ", final_count);
 
-	//write("output_delay_feedback_c.bin",output_data,AUDIO_DATA_LENGTH);
+	//write("output_flanger_feedback_c.bin",output_data,AUDIO_DATA_LENGTH);
 
 
 	heap_free(index,output_data);

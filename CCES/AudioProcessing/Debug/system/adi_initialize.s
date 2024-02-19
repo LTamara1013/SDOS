@@ -1,5 +1,5 @@
 	.file "..\system\adi_initialize.c";
-//  Compilation time: Mon Feb  1 01:23:14 2021
+//  Compilation time: Mon Feb  1 23:27:01 2021
 //  Compiler options: -c -file-attr ProjectName=AudioProcessing -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -O -Ov100 -g -save-temps -path-output .\system -DCORE0 -D_DEBUG -ID:/CrossCore/Workspace/AudioProcessing/system -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo system\adi_initialize.d -o system\adi_initialize.doj
 //  Compiler version: 8.15.1.0 (61a2eff16741378b1ae40f6392a0806696679a50)
 //  Architecture: ADSP-21489

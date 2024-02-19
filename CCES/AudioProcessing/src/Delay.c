@@ -7,6 +7,7 @@
 
 #include "Delay.h"
 #include "AudioProcessing.h"
+#include "Normalization.h"
 
 
 #ifdef DELAY_NO_OPT
@@ -49,19 +50,7 @@ void delay(float *input_signal, float *output_signal, int length) {
         writeIndex = (writeIndex + 1) % DELAY_SAMPLES;
     }
 
-    // Normalize the output
-    float maxVal = 0.0;
-
-    for (int i = 0; i < length; i++) {
-        maxVal = fmaxf(maxVal, fabs(output_signal[i]));
-    }
-
-    if (maxVal != 0.0) {
-
-        for (int i = 0; i < length; i++) {
-            output_signal[i] /= maxVal;
-        }
-    }
+    normalization(output_signal,length);
 
 }
 #endif
@@ -107,19 +96,7 @@ void delay(float *input_signal, float *output_signal, int length) {
         writeIndex = (writeIndex + 1) % DELAY_SAMPLES;
     }
 
-    // Normalize the output
-    float maxVal = 0.0;
-	#pragma vector_for
-    for (int i = 0; i < length; i++) {
-        maxVal = fmaxf(maxVal, fabs(output_signal[i]));
-    }
-
-    if (maxVal != 0.0) {
-		#pragma vector_for
-        for (int i = 0; i < length; i++) {
-            output_signal[i] /= maxVal;
-        }
-    }
+    normalization(output_signal,length);
 
 }
 #endif
@@ -253,8 +230,7 @@ void delay(float *input_signal, float *output_signal, int length) {
 
 
 void delay_with_feedback(float* input_signal, float* output_signal, int signal_length, float feedback_gain, float feedforward_gain) {
-    float max_value = 0.0;
-//#pragma vector_for
+
     for (int i = 0; i < signal_length; i++) {
         float input_sample = input_signal[i];
         int buffer_index = i % DELAY_SAMPLES;
@@ -267,18 +243,48 @@ void delay_with_feedback(float* input_signal, float* output_signal, int signal_l
             output_signal[i] = input_sample;
         }
 
-        if (fabs(output_signal[i]) > max_value) {
-            max_value = fabs(output_signal[i]);
+    }
+
+    normalization(output_signal,signal_length);
+}
+#endif
+
+#ifdef DELAY_FEEDBACK_PRAGMA
+/*
+ * @brief Implements a delay with feedback effect on an input signal.
+ *
+ * @detailes This function applies a delay effect with feedback to the input signal. The feedback loop
+ *           allows part of the output signal to be mixed back into the delay line, creating repeating,
+ *           decaying echoes. The following code is conditionally compiled only if DELAY_FEEDBACK_PRAGMA is defined.
+ *
+ *
+ * @param input_signal Pointer to the array containing the input signal.
+ * @param output_signal Pointer to the array where the output signal will be stored.
+ * @param signal_length The number of samples in the input signal.
+ * @param feedback_gain Feedback gain factor, controls the level of the delayed signal fed back into the mix.
+ * @param feedforward_gain Feedforward gain factor, controls the level of the original signal in the mix.
+ *
+ * @note The arrays input and output must be pre-allocated and have enough space to hold size samples.
+ *       The function does not perform memory allocation.
+ *
+ */
+
+
+void delay_with_feedback(float* input_signal, float* output_signal, int signal_length, float feedback_gain, float feedforward_gain) {
+    for (int i = 0; i < signal_length; i++) {
+        float input_sample = input_signal[i];
+        int buffer_index = i % DELAY_SAMPLES;
+        float delayed_sample = delayBuffer[buffer_index];
+
+        if (i >= DELAY_SAMPLES) {
+            delayBuffer[buffer_index] = input_sample + feedback_gain * delayed_sample;
+            output_signal[i] = input_sample + feedforward_gain * delayed_sample;
+        } else {
+            output_signal[i] = input_sample;
         }
     }
 
-    // Normalize the output signal
-    if (max_value > 0) {
-//#pragma vector_for
-        for (int i = 0; i < signal_length; i++) {
-            output_signal[i] /= max_value;
-        }
-    }
+    normalization(output_signal,signal_length);
 }
 #endif
 

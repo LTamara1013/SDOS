@@ -4,6 +4,7 @@
 
 #include "Tremolo.h"
 #include "AudioProcessing.h"
+#include "Normalization.h"
 
 #ifdef TREMOLO_NO_OPT
 
@@ -30,19 +31,7 @@ void tremolo(float* input_signal, int signal_length, int Fs, int Flfo, float alp
 		output_signal[i] = (1 + alpha * sinf(2 * PI * Flfo * i / Fs)) * input_signal[i];
 	}
 
-	// Normalize the output
-	float maxVal = 0.0;
-
-	for (int i = 0; i < signal_length; i++) {
-		maxVal = fmaxf(maxVal, fabs(output_signal[i]));
-	}
-
-	if (maxVal != 0.0) {
-
-		for (int i = 0; i < signal_length; i++) {
-			output_signal[i] /= maxVal;
-		}
-	}
+	 normalization(output_signal,signal_length);
 
 }
 #endif
@@ -71,19 +60,7 @@ void tremolo(float* input_signal, int signal_length, int Fs, int Flfo, float alp
         output_signal[i] = (1 + alpha * sinf(2 * PI * Flfo * i / Fs)) * input_signal[i];
     }
 
-    // Normalize the output
-    float maxVal = 0.0;
-    #pragma vector_for
-    for (int i = 0; i < signal_length; i++) {
-        maxVal = fmaxf(maxVal, fabs(output_signal[i]));
-    }
-
-    if (maxVal != 0.0) {
-        #pragma vector_for
-        for (int i = 0; i < signal_length; i++) {
-            output_signal[i] /= maxVal;
-        }
-    }
+    normalization(output_signal,signal_length);
 }
 #endif
 
@@ -106,7 +83,6 @@ void tremolo(float* input_signal, int signal_length, int Fs, int Flfo, float alp
  *
  */
 void tremolo(float* input_signal, int signal_length, int Fs, int Flfo, float alpha, float* output_signal) {
-	 float maxVal = 0.0;
 	//Precomputes a constant value used in the sine function calculation.
 	 const float omega = 2 * PI * Flfo / Fs;
 
@@ -114,17 +90,9 @@ void tremolo(float* input_signal, int signal_length, int Fs, int Flfo, float alp
 	// Combined operation loop
     for (int i = 0; i < signal_length; i++){
         output_signal[i] = (1 + alpha * sinf(omega * i)) * input_signal[i];
-        maxVal = fmaxf(maxVal, fabs(output_signal[i]));
     }
 
-    // Avoid division if maxVal is zero to prevent division by zero
-    if (maxVal != 0.0) {
-    	float invMaxVal = 1.0 / maxVal; // Compute reciprocal of maxVal
-		#pragma vector_for
-        for (int i = 0; i < signal_length; i++) {
-              output_signal[i] *= invMaxVal; // Multiply by reciprocal (more efficient than division)
-          }
-      }
+    normalization(output_signal,signal_length);
 }
 #endif
 

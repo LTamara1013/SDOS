@@ -4,7 +4,8 @@
 #ifndef TREMOLO_H_
 #define TREMOLO_H_
 
-#define PI 3.14159265358979323846
+
+//#define PI 3.14159265358979323846
 
 
 #if defined TREMOLO_NO_OPT || defined TREMOLO_PRAGMA_OPT || defined TREMOLO_OPT

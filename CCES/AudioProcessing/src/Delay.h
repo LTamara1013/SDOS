@@ -6,19 +6,6 @@
 #define DELAY_H_
 
 
-#define SAMPLE_RATE 11025
-
-
-#define DELAY_MS 200
-#define DELAY_SAMPLES ((int)(SAMPLE_RATE * (DELAY_MS/1000.0)))
-#define GAIN 0.5
-static float delayBuffer[DELAY_SAMPLES];
-
-
-
-
-
-
 #if defined DELAY_NO_OPT || defined DELAY_OPT || defined DELAY_CODE_OPT || defined DELAY_PRAGMA_OPT
 /*
  * @brief Applies a delay effect to an input signal.
@@ -41,7 +28,7 @@ void delay(float *input, float *output, int length);
 #endif
 
 
-#ifdef DELAY_FEEDBACK_NO_OPT
+#if defined DELAY_FEEDBACK_NO_OPT || defined DELAY_FEEDBACK_PRAGMA
 /*
  * @brief Implements a delay with feedback effect on an input signal, without optimizations.
  *
@@ -63,5 +50,6 @@ void delay(float *input, float *output, int length);
 
 void delay_with_feedback(float* input_signal, float* output_signal, int signal_length, float feedback_gain, float feedforward_gain);
 #endif
+
 
 #endif /* DELAY_H_ */
