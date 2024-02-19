@@ -14,6 +14,6 @@
  * @param length		- The length of the audio in output_data.
  */
 void write(const char* filename, float* output_data, int length);
-void write_txt(const char* filename, float* output_data, int length);
+
 
 #endif /* WRITE_H_ */
