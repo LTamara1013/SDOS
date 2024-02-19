@@ -1,0 +1,13 @@
+system/sru/sru_config.doj: ../system/sru/sru_config.c
+system/sru/sru_config.doj: ../../../SHARC/include/stdint.h
+system/sru/sru_config.doj: ../../../SHARC/include/yvals.h
+system/sru/sru_config.doj: ../../../SHARC/include/sys/platform.h
+system/sru/sru_config.doj: ../../../SHARC/include/platform_include.h
+system/sru/sru_config.doj: ../../../SHARC/include/Cdef21489.h
+system/sru/sru_config.doj: ../../../SHARC/include/def21489.h
+system/sru/sru_config.doj: ../../../SHARC/include/processor_include.h
+system/sru/sru_config.doj: ../../../SHARC/include/21489.h
+system/sru/sru_config.doj: ../../../SHARC/include/21469.h
+system/sru/sru_config.doj: ../../../SHARC/include/platform_include.h
+system/sru/sru_config.doj: ../../../SHARC/include/builtins.h
+system/sru/sru_config.doj: ../../../SHARC/include/sys/builtins_support.h
