@@ -117,7 +117,7 @@ void flanger(float* input_signal, float* output_signal, int signal_length, float
  */
 void flanger_with_feedback(float* input_signal, float* output_signal,int signal_length, float Flfo, float feedback_gain, float feedforward_gain) {
     float omega = (2 * PI * Flfo) / SAMPLE_RATE;
-	#pragma vector_for
+	//#pragma vector_for
     for (int i = 0; i < signal_length; i++) {
         float current_delay = (1 + sinf(omega * i)) / 2 * DELAY_SAMPLES;
         int delay_index = (int)current_delay;

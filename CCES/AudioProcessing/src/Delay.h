@@ -6,28 +6,6 @@
 #define DELAY_H_
 
 
-#if defined DELAY_NO_OPT || defined DELAY_OPT || defined DELAY_CODE_OPT || defined DELAY_PRAGMA_OPT
-/*
- * @brief Applies a delay effect to an input signal.
- *
- * @detailes This function applies a delay effect to the input signal using a pre-allocated buffer
- *           to store delayed samples. The following code is conditionally compiled only if DELAY_NO_OPT is defined.
- *
- * @param input_signal Pointer to the array containing the input signal.
- * @param output_signal Pointer to the array where the output signal will be stored.
- * @param length The number of samples in the input signal.
- *
- * @note The input_signal and output_signal arrays must be pre-allocated and
- *       have enough space to hold the necessary samples. The function does not perform
- *       memory allocation.
- *
- */
-void delay(float *input, float *output, int length);
-
-
-#endif
-
-
 #if defined DELAY_FEEDBACK_NO_OPT || defined DELAY_FEEDBACK_PRAGMA
 /*
  * @brief Implements a delay with feedback effect on an input signal, without optimizations.

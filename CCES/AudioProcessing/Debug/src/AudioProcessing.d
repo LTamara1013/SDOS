@@ -41,4 +41,5 @@ src/AudioProcessing.doj: audio_data.h
 src/AudioProcessing.doj: ../src/Delay.h
 src/AudioProcessing.doj: ../src/Tremolo.h
 src/AudioProcessing.doj: ../src/Flanger.h
+src/AudioProcessing.doj: ../src/WahWah.h
 src/AudioProcessing.doj: ../src/Write.h

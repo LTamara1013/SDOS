@@ -1,6 +1,6 @@
 	.file "..\system\sru\sru_config.c";
-//  Compilation time: Mon Feb  1 23:27:00 2021
-//  Compiler options: -c -file-attr ProjectName=AudioProcessing -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -O -Ov100 -g -save-temps -path-output .\system\sru -DCORE0 -D_DEBUG -ID:/CrossCore/Workspace/AudioProcessing/system -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo system\sru\sru_config.d -o system\sru\sru_config.doj
+//  Compilation time: Mon Feb  1 19:27:48 2021
+//  Compiler options: -c -file-attr ProjectName=AudioProcessing -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -g -save-temps -path-output .\system\sru -DCORE0 -D_DEBUG -ID:/CrossCore/Workspace/AudioProcessing/system -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo system\sru\sru_config.d -o system\sru\sru_config.doj
 //  Compiler version: 8.15.1.0 (61a2eff16741378b1ae40f6392a0806696679a50)
 //  Architecture: ADSP-21489
 //  Silicon revision: 0.2
@@ -23,11 +23,9 @@ _adi_SRU_Init:
 //-------------------------------------------------------------------
 .LN0:
 // line "..\system\sru\sru_config.c":411
-	i12=dm(m7,i6);
-	// -- stall --
-	jump (m14,i12) (db);
 	r0=m5;
-	rframe;
+	i12=dm(m7,i6);
+	jump (m14,i12) (db); rframe; nop;
 .LN._adi_SRU_Init.end:
 ._adi_SRU_Init.end:
 	.global _adi_SRU_Init;

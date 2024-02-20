@@ -24,6 +24,6 @@ void write(const char* filename,float* output_data, int length){
 		fwrite(&output_data[i],sizeof(float),1,fp);
 	}
 	fclose(fp);
-	printf("Data written successfully.");
+	printf("Data written successfully.\n");
 }
 

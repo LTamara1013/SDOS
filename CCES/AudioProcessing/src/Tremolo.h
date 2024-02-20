@@ -8,7 +8,7 @@
 //#define PI 3.14159265358979323846
 
 
-#if defined TREMOLO_NO_OPT || defined TREMOLO_PRAGMA_OPT || defined TREMOLO_OPT
+#if defined TREMOLO_NO_OPT || defined TREMOLO_OPT
 
 
 /*
@@ -27,7 +27,7 @@
  *
  */
 
-void tremolo(float* input_signal, int signal_length, int Fs, int Flfo, float alpha, float* output_signal);
+void tremolo(float* input_signal,float* output_signal, int signal_length, int Flfo, float alpha);
 #endif
 
 #endif /* TREMOLO_H_ */

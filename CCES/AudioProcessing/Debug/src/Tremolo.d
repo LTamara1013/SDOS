@@ -33,3 +33,4 @@ src/Tremolo.doj: ../../../SHARC/include/sys/builtins_support.h
 src/Tremolo.doj: ../../../SHARC/include/string.h
 src/Tremolo.doj: ../../../SHARC/include/builtins.h
 src/Tremolo.doj: ../../../SHARC/include/sys/builtins_support.h
+src/Tremolo.doj: ../src/Normalization.h

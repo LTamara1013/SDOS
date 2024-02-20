@@ -33,3 +33,4 @@ src/Delay.doj: ../../../SHARC/include/sys/builtins_support.h
 src/Delay.doj: ../../../SHARC/include/string.h
 src/Delay.doj: ../../../SHARC/include/builtins.h
 src/Delay.doj: ../../../SHARC/include/sys/builtins_support.h
+src/Delay.doj: ../src/Normalization.h

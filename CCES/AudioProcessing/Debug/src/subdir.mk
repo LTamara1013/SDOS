@@ -9,6 +9,7 @@ C_SRCS += \
 ../src/Flanger.c \
 ../src/Normalization.c \
 ../src/Tremolo.c \
+../src/WahWah.c \
 ../src/Write.c 
 
 SRC_OBJS += \
@@ -17,6 +18,7 @@ SRC_OBJS += \
 ./src/Flanger.doj \
 ./src/Normalization.doj \
 ./src/Tremolo.doj \
+./src/WahWah.doj \
 ./src/Write.doj 
 
 C_DEPS += \
@@ -25,6 +27,7 @@ C_DEPS += \
 ./src/Flanger.d \
 ./src/Normalization.d \
 ./src/Tremolo.d \
+./src/WahWah.d \
 ./src/Write.d 
 
 
@@ -32,42 +35,49 @@ C_DEPS += \
 src/AudioProcessing.doj: ../src/AudioProcessing.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: CrossCore SHARC C/C++ Compiler'
-	cc21k -c -file-attr ProjectName="AudioProcessing" -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -O -Ov100 -g -save-temps -path-output ./$(@D) -DCORE0 -D_DEBUG @includes-7339dddc85bb3273f20f37ad79910aed.txt -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo "src/AudioProcessing.d" -o "$@" "$<"
+	cc21k -c -file-attr ProjectName="AudioProcessing" -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -g -save-temps -path-output ./$(@D) -DCORE0 -D_DEBUG @includes-7339dddc85bb3273f20f37ad79910aed.txt -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo "src/AudioProcessing.d" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 src/Delay.doj: ../src/Delay.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: CrossCore SHARC C/C++ Compiler'
-	cc21k -c -file-attr ProjectName="AudioProcessing" -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -O -Ov100 -g -save-temps -path-output ./$(@D) -DCORE0 -D_DEBUG @includes-7339dddc85bb3273f20f37ad79910aed.txt -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo "src/Delay.d" -o "$@" "$<"
+	cc21k -c -file-attr ProjectName="AudioProcessing" -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -g -save-temps -path-output ./$(@D) -DCORE0 -D_DEBUG @includes-7339dddc85bb3273f20f37ad79910aed.txt -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo "src/Delay.d" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 src/Flanger.doj: ../src/Flanger.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: CrossCore SHARC C/C++ Compiler'
-	cc21k -c -file-attr ProjectName="AudioProcessing" -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -O -Ov100 -g -save-temps -path-output ./$(@D) -DCORE0 -D_DEBUG @includes-7339dddc85bb3273f20f37ad79910aed.txt -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo "src/Flanger.d" -o "$@" "$<"
+	cc21k -c -file-attr ProjectName="AudioProcessing" -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -g -save-temps -path-output ./$(@D) -DCORE0 -D_DEBUG @includes-7339dddc85bb3273f20f37ad79910aed.txt -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo "src/Flanger.d" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 src/Normalization.doj: ../src/Normalization.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: CrossCore SHARC C/C++ Compiler'
-	cc21k -c -file-attr ProjectName="AudioProcessing" -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -O -Ov100 -g -save-temps -path-output ./$(@D) -DCORE0 -D_DEBUG @includes-7339dddc85bb3273f20f37ad79910aed.txt -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo "src/Normalization.d" -o "$@" "$<"
+	cc21k -c -file-attr ProjectName="AudioProcessing" -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -g -save-temps -path-output ./$(@D) -DCORE0 -D_DEBUG @includes-7339dddc85bb3273f20f37ad79910aed.txt -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo "src/Normalization.d" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 src/Tremolo.doj: ../src/Tremolo.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: CrossCore SHARC C/C++ Compiler'
-	cc21k -c -file-attr ProjectName="AudioProcessing" -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -O -Ov100 -g -save-temps -path-output ./$(@D) -DCORE0 -D_DEBUG @includes-7339dddc85bb3273f20f37ad79910aed.txt -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo "src/Tremolo.d" -o "$@" "$<"
+	cc21k -c -file-attr ProjectName="AudioProcessing" -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -g -save-temps -path-output ./$(@D) -DCORE0 -D_DEBUG @includes-7339dddc85bb3273f20f37ad79910aed.txt -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo "src/Tremolo.d" -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+src/WahWah.doj: ../src/WahWah.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: CrossCore SHARC C/C++ Compiler'
+	cc21k -c -file-attr ProjectName="AudioProcessing" -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -g -save-temps -path-output ./$(@D) -DCORE0 -D_DEBUG @includes-7339dddc85bb3273f20f37ad79910aed.txt -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo "src/WahWah.d" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 src/Write.doj: ../src/Write.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: CrossCore SHARC C/C++ Compiler'
-	cc21k -c -file-attr ProjectName="AudioProcessing" -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -O -Ov100 -g -save-temps -path-output ./$(@D) -DCORE0 -D_DEBUG @includes-7339dddc85bb3273f20f37ad79910aed.txt -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo "src/Write.d" -o "$@" "$<"
+	cc21k -c -file-attr ProjectName="AudioProcessing" -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -g -save-temps -path-output ./$(@D) -DCORE0 -D_DEBUG @includes-7339dddc85bb3273f20f37ad79910aed.txt -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo "src/Write.d" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

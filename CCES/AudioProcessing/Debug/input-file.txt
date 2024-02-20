@@ -3,6 +3,7 @@
 "src/Flanger.doj"
 "src/Normalization.doj"
 "src/Tremolo.doj"
+"src/WahWah.doj"
 "src/Write.doj"
 "system/adi_initialize.doj"
 "system/sru/sru_config.doj"
