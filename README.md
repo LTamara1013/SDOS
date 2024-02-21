@@ -16,7 +16,7 @@ U okviru projektnog zadatka implementirani su audio efekti(echo,flanger,tremolo,
 
 U folderu **_Python_** sadržan je sav kod koji je implementiran u Pythonu. Unutar ovog foldera nalaze se i svi izlazni audio signali nad kojima su primijenjeni implementirani efekti, kao i header fajl u koji su smješteni odmjerci audio signala koji je generisan u Pythonu. Tu se smješteni i binarni fajlovi u koje su upisani odmjerci audio signala nad kojima su primijenjeni efekti implementirani u C programskom jeziku. 
 
-U folderu **_CCES_** sadržan je projekat kreiran u _CCES_ . Sadrži folder **_AudioProcessing_** koji implementira efekte napisane u C programskom jeziku. **_AudioProcessing.c_** sadrži implementiranu **_main_** funkciju u kojoj se pozivaju sve funckije korištene za obradu audio signala.
+U folderu **_CCES_** sadržan je projekat kreiran u _CCES_ . Sadrži folder **_AudioProcessing_** u kom se nalaze implementirani efekti napisani u C programskom jeziku. **_AudioProcessing.c_** sadrži implementiranu **_main_** funkciju u kojoj se pozivaju sve funckije korištene za obradu audio signala.
 
 ## Pokretanje i izvršavanje
 
@@ -28,7 +28,7 @@ Pokretanje se sprovodi sljedećim nizom koraka:
 
 
 
-## Izvještaj i rezultati izvršavanja
+## Izvještaj 
 
 U _pdf_ dokumentu **_Izvještaj_** dat je izvještaj sa detaljnijim opisom funkcionalnosti realizovanih pri izradi projektnog zadatka.
  
