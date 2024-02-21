@@ -37,7 +37,7 @@ src/AudioProcessing.doj: ../../../SHARC/include/sys/builtins_support.h
 src/AudioProcessing.doj: ../../../SHARC/include/string.h
 src/AudioProcessing.doj: ../../../SHARC/include/builtins.h
 src/AudioProcessing.doj: ../../../SHARC/include/sys/builtins_support.h
-src/AudioProcessing.doj: audio_data.h
+src/AudioProcessing.doj: acoustic_.h
 src/AudioProcessing.doj: ../src/Delay.h
 src/AudioProcessing.doj: ../src/Tremolo.h
 src/AudioProcessing.doj: ../src/Flanger.h

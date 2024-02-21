@@ -47,19 +47,26 @@ float delayBuffer[DELAY_SAMPLES + 1];
 //#define WAHWAH_NO_OPT || WAHWAH_PRAGMA
 
 
-#define DELAY_FEEDBACK_NO_OPT
+
+
+//#define DELAY_FEEDBACK_NO_OPT
 #define TREMOLO_NO_OPT
 #define FLANGER_NO_OPT
 #define FLANGER_FEEDBACK
 #define WAHWAH_NO_OPT
 
+
+
+
 /*
-#define DELAY_FEEDBACK_PRAGMA
+//#define DELAY_FEEDBACK_PRAGMA
 #define TREMOLO_OPT
 #define FLANGER_PRAGMA
 #define FLANGER_FEEDBACK
 #define WAHWAH_PRAGMA
 */
+
+//#define FLANGER_FEEDBACK_UNROLL
 
 
 void mixSignals(float* signalA, float* signalB, float* mixedOutput, int length, float mixRatio);

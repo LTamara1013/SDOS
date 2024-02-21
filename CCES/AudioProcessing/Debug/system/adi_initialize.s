@@ -1,6 +1,6 @@
 	.file "..\system\adi_initialize.c";
-//  Compilation time: Mon Feb  1 19:27:48 2021
-//  Compiler options: -c -file-attr ProjectName=AudioProcessing -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -g -save-temps -path-output .\system -DCORE0 -D_DEBUG -ID:/CrossCore/Workspace/AudioProcessing/system -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo system\adi_initialize.d -o system\adi_initialize.doj
+//  Compilation time: Mon Feb  1 13:37:22 2021
+//  Compiler options: -c -file-attr ProjectName=AudioProcessing -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -O -Ov100 -g -save-temps -path-output .\system -DCORE0 -D_DEBUG -ID:/CrossCore/Workspace/AudioProcessing/system -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo system\adi_initialize.d -o system\adi_initialize.doj
 //  Compiler version: 8.15.1.0 (61a2eff16741378b1ae40f6392a0806696679a50)
 //  Architecture: ADSP-21489
 //  Silicon revision: 0.2
@@ -17,28 +17,25 @@ _adi_initComponents:
 .LN_adi_initComponents:
 //-------------------------------------------------------------------
 //  Procedure statistics:
-//  Frame size            = 4 words
-//  Scratch registers used: {i12}
+//  Frame size            = 2 words
+//  Scratch registers used: {r2,i12}
 //  No call preserved registers used.
-//  Registers that could be clobbered by function calls: {r0-r2,r4,r8,r12,s0-s15,i4,i12-i13,b4,b12-b13,m4,m12,ustat1-ustat4,acc,mcc,scc,btf,sacc,smcc,sscc,sbtf,stky,stkyy,msf,msb,lcntr,px}
+//  Registers that could be clobbered by function calls: {r0-r1,r4,r8,r12,s0-s15,i4,i6-i7,i12-i13,b4,b12-b13,m4,m12,ustat1-ustat4,acc,mcc,scc,btf,sacc,smcc,sscc,sbtf,stky,stkyy,msf,msb,lcntr,px}
 //-------------------------------------------------------------------
-// line "..\system\adi_initialize.c":17
-	modify(i7,-2);
 .LN0:
-// line 18
-	dm(-2,i6)=m13;
+// line "..\system\adi_initialize.c":22
+	cjump _adi_SRU_Init (db);
+	dm(i7,m7)=r2;
+	dm(i7,m7)=.LCJ0-1;
+.LCJ0:
 
 .LN1:
-// line 22
-	cjump _adi_SRU_Init (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ0-1;
-.LCJ0:
-.LN2:
-	dm(-2,i6)=r0;
-
-.LN3:
 // line 25
 	i12=dm(m7,i6);
-	jump (m14,i12) (db); rframe; nop;
+	// -- 2 stalls --
+	jump (m14,i12) (db);
+	rframe;
+	nop;
 .LN._adi_initComponents.end:
 ._adi_initComponents.end:
 	.global _adi_initComponents;
@@ -58,7 +55,7 @@ _adi_initComponents:
 	.align 1;
 	.type .epcabbrev,STT_OBJECT;
 .epcabbrev:
-	.inc/binary ".\system\adi_initialize.sbn", 0, 152;
+	.inc/binary ".\system\adi_initialize.sbn", 0, 135;
 .epcabbrev.end:
 
 	.section .debug_info;
@@ -67,14 +64,14 @@ _adi_initComponents:
 	.type .epcdebug,STT_OBJECT;
 .epcdebug:
 	.byte =
-		0xA6,0x06,0x00,0x00,0x02,0x00;
+		0x91,0x06,0x00,0x00,0x02,0x00;
 	.var = .epcabbrev;
 	.byte =
 		0x04,0x01,0x2E,0x2E,0x5C,0x73,0x79,0x73,0x74,0x65,0x6D,0x5C,
 		0x61,0x64,0x69,0x5F,0x69,0x6E,0x69,0x74,0x69,0x61,0x6C,0x69,
 		0x7A,0x65,0x2E,0x63,0x00,0x0C;
 	.var = .epcline;
-	.inc/binary ".\system\adi_initialize.sbn", 152, 1609;
+	.inc/binary ".\system\adi_initialize.sbn", 135, 1609;
 	.var = .LN_adi_initComponents;
 	.var = .LN._adi_initComponents.end;
 	.byte =
@@ -82,11 +79,7 @@ _adi_initComponents:
 	.var = .LN0;
 	.var = .LN._adi_initComponents.end;
 	.byte =
-		0x0A,0x72,0x65,0x73,0x75,0x6C,0x74,0x00,0x01,0xA8,0x04,0x00,
-		0x00,0x02,0x86,0x7E;
-	.var = .LN0-.LN_adi_initComponents;
-	.byte =
-		0x00,0x00,0x00,0x00,0x00;
+		0x00,0x00,0x00,0x00;
 .epcdebug.end:
 
 	.section .debug_line;
@@ -94,20 +87,14 @@ _adi_initComponents:
 	.align 1;
 	.type .epcline,STT_OBJECT;
 .epcline:
-	.inc/binary ".\system\adi_initialize.sbn", 1761, 409;
+	.inc/binary ".\system\adi_initialize.sbn", 1744, 409;
 	.var = .LN_adi_initComponents;
 	.byte =
 		0x04,0x01,0x05,0x01,0x19,0x00,0x05,0x02;
 	.var = .LN0;
 	.byte =
-		0x05,0x0A,0x0A,0x00,0x05,0x02;
+		0x05,0x18,0x0E,0x00,0x05,0x02;
 	.var = .LN1;
-	.byte =
-		0x05,0x18,0x0D,0x00,0x05,0x02;
-	.var = .LN2;
-	.byte =
-		0x05,0x03,0x01,0x00,0x05,0x02;
-	.var = .LN3;
 	.byte =
 		0x05,0x02,0x0C,0x00,0x05,0x02;
 	.var = .LN._adi_initComponents.end;
@@ -124,7 +111,7 @@ _adi_initComponents:
 		0x25,0x00,0x00,0x00,0x02,0x00;
 	.var = .epcdebug;
 	.byte =
-		0xAA,0x06,0x00,0x00,0x5C,0x06,0x00,0x00,0x61,0x64,0x69,0x5F,
+		0x95,0x06,0x00,0x00,0x5C,0x06,0x00,0x00,0x61,0x64,0x69,0x5F,
 		0x69,0x6E,0x69,0x74,0x43,0x6F,0x6D,0x70,0x6F,0x6E,0x65,0x6E,
 		0x74,0x73,0x00,0x00,0x00,0x00,0x00;
 .epcpubnames.end:

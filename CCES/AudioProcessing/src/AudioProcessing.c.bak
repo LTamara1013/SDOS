@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
 	memset(temp2, 0, AUDIO_DATA_LENGTH * sizeof(float));
 
 
-	delay_cycles(3500000);
+	/*delay_cycles(3500000);
 	// Turn on LED01
 	sysreg_bit_set(sysreg_FLAGS, FLG4);
 
@@ -147,7 +147,7 @@ int main(int argc, char *argv[])
 	PRINT_CYCLES("Flanger: ", final_count);
 	//write("acoustic_output_flanger_c.bin",output_data,AUDIO_DATA_LENGTH);
 	 delay_cycles(3500000);
-
+*/
 
 	// Turn on LED04
 	SRU(HIGH,DAI_PB03_I);
@@ -158,7 +158,7 @@ int main(int argc, char *argv[])
 	PRINT_CYCLES("Flanger with feedback: ", final_count);
 	write("acoustic1_output_flanger_with_feedback_c.bin",output_data,AUDIO_DATA_LENGTH);
 
-	 delay_cycles(3500000);
+/*	 delay_cycles(3500000);
 	// Turn on LED05
 	SRU(HIGH,DAI_PB04_I);
 	START_CYCLE_COUNT(start_count);
@@ -191,7 +191,7 @@ int main(int argc, char *argv[])
 	delay_cycles(3500000);
 	 // Turn on LED08
 	 SRU(HIGH,DAI_PB17_I);
-	 printf("Done.\n");
+	 printf("Done.\n");*/
 
 	heap_free(index,output_data);
 	heap_free(index,temp1);

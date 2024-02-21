@@ -1,6 +1,6 @@
 	.file "..\system\startup_ldf\app_heaptab.c";
-//  Compilation time: Mon Feb  1 19:27:47 2021
-//  Compiler options: -c -file-attr ProjectName=AudioProcessing -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -g -save-temps -path-output .\system\startup_ldf -DCORE0 -D_DEBUG -ID:/CrossCore/Workspace/AudioProcessing/system -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo system\startup_ldf\app_heaptab.d -o system\startup_ldf\app_heaptab.doj
+//  Compilation time: Mon Feb  1 13:37:20 2021
+//  Compiler options: -c -file-attr ProjectName=AudioProcessing -proc ADSP-21489 -flags-compiler --no_wrap_diagnostics -si-revision 0.2 -O -Ov100 -g -save-temps -path-output .\system\startup_ldf -DCORE0 -D_DEBUG -ID:/CrossCore/Workspace/AudioProcessing/system -structs-do-not-overlap -no-const-strings -multiline -warn-protos -Wremarks -double-size-32 -swc -gnu-style-dependencies -MD -Mo system\startup_ldf\app_heaptab.d -o system\startup_ldf\app_heaptab.doj
 //  Compiler version: 8.15.1.0 (61a2eff16741378b1ae40f6392a0806696679a50)
 //  Architecture: ADSP-21489
 //  Silicon revision: 0.2
